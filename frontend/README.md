@@ -4,7 +4,7 @@ Este proyecto corresponde al frontend de la aplicación CMPC, desarrollado con R
 
 ## Tecnologías Principales
 
-- React 18
+- React 19
 - TypeScript
 - Vite
 - Redux (para manejo de estado)
