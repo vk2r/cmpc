@@ -1,0 +1,23 @@
+meta {
+  name: update
+  type: http
+  seq: 5
+}
+
+put {
+  url: http://localhost:3003/products
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "id": "p925p4CnryDR0dEmgkRCx",
+    "name": "Sonic Adventure",
+    "price": 15000,
+    "stock": 10,
+    "selled": 5,
+    "demand": 35,
+    "date": "2025-01-01"
+  }
+}

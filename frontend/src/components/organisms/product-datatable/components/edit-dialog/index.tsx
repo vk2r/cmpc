@@ -1,5 +1,4 @@
-"use client"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // Externals components
 import { Label } from "../../../../ui/label";
@@ -8,7 +7,7 @@ import { Input } from "../../../../ui/input";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "../../../../ui/dialog";
 
 // Definitions
-import type { Product } from "../../types"
+import type { Product } from "../../types";
 
 export type Props = {
   product: Product
@@ -23,6 +22,11 @@ const EditDialog = (props: Props) => {
 
   // States
   const [editedProduct, setEditedProduct] = useState<Product>(product);
+
+  // Effects
+  useEffect(() => {
+    setEditedProduct(product);
+  }, [product]);
 
   // Methods
   const handleSave = () => {

@@ -1,9 +1,14 @@
-// Templates
-import Home from "./components/templates/home";
+import { Provider } from "react-redux";
+import { store } from "./providers/store";
+
+// Pages
+import Home from "./components/pages/home";
 
 function App() {
   return (
-    <Home />
+    <Provider store={store}>
+      <Home />
+    </Provider>
   )
 }
 

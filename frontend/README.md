@@ -1,50 +1,89 @@
-# React + TypeScript + Vite
+# Frontend CMPC
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto corresponde al frontend de la aplicación CMPC, desarrollado con React, TypeScript y Vite.
 
-Currently, two official plugins are available:
+## Tecnologías Principales
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React 18
+- TypeScript
+- Vite
+- Redux (para manejo de estado)
+- Shadcn/ui (para componentes de UI)
 
-## Expanding the ESLint configuration
+## Estructura del Proyecto
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+src/
+  ├── components/     # Componentes React
+  │   ├── atoms/      # Componentes básicos
+  │   ├── molecules/  # Componentes compuestos
+  │   ├── organisms/  # Componentes complejos
+  │   ├── pages/      # Páginas
+  │   ├── templates/  # Plantillas
+  │   └── ui/         # Componentes de UI (shadcn)
+  ├── lib/            # Utilidades y funciones auxiliares
+  ├── providers/      # Proveedores de estado (Redux)
+  ├── services/       # Servicios de API
+  └── types/          # Definiciones de tipos TypeScript
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Requisitos
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+Este proyecto utiliza [nvm](https://github.com/nvm-sh/nvm) para gestionar la versión de Node.js. La versión requerida es `v22.13.1`.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+Para configurar la versión correcta de Node.js:
+
+```bash
+# Instalar la versión específica de Node.js
+nvm install v22.13.1
+
+# Usar la versión del proyecto
+nvm use
 ```
+
+## Scripts Disponibles
+
+- `npm start`: Inicia el servidor de desarrollo
+- `npm run build`: Construye la aplicación para producción
+- `npm run lint`: Ejecuta el linter
+- `npm run preview`: Previsualiza la versión de producción
+
+## Configuración
+
+El proyecto utiliza variables de entorno a través del archivo `.env`. Asegúrate de configurar las siguientes variables:
+
+```
+VITE_API_URL=http://localhost:3000
+```
+
+## Desarrollo
+
+1. Instala las dependencias:
+```bash
+npm install
+```
+
+2. Inicia el servidor de desarrollo:
+```bash
+npm start
+```
+
+3. Abre [http://localhost:5173](http://localhost:5173) en tu navegador.
+
+## Arquitectura
+
+El proyecto sigue una arquitectura basada en componentes utilizando Atomic Design, con las siguientes capas:
+
+- **Atoms**: Componentes básicos reutilizables como botones, inputs, etc.
+- **Molecules**: Combinaciones de atoms que forman componentes más complejos
+- **Organisms**: Secciones completas de la interfaz que agrupan molecules
+- **Templates**: Layouts reutilizables para las páginas
+- **Pages**: Implementaciones específicas de templates con datos reales
+
+## Estado
+
+La gestión del estado se realiza mediante Redux, con slices organizados por funcionalidad en `/src/providers/store/`.
+
+## API
+
+La comunicación con el backend se gestiona a través de servicios centralizados en `/src/services/`.

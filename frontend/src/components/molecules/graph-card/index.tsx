@@ -1,25 +1,31 @@
-import { useState, useEffect } from "react";
 import Plot, { type PlotParams } from "react-plotly.js";
 
 // Components
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "../../ui/card";
 
-export default function GraphCard() {
+// Definitions
+export type Props = {
+  months: string[];
+  amounts: number[];
+};
+
+const GraphCard = (props: Props) => {
+  // Props
+  const { months, amounts } = props;
 
   // Constants
-  const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio"];
-  const cantidadProductos = [120, 150, 200, 180, 250, 300];
   const data: PlotParams["data"] = [
     {
-      x: meses,
-      y: cantidadProductos,
+      x: months,
+      y: amounts,
       type: "bar",
       marker: {
-        color: "rgb(0, 158, 115)",
+        color: "black",
         opacity: 0.7,
       },
     },
   ];
+
   const layout = {
     title: "Cantidad de Productos por Mes",
     xaxis: { title: "Mes" },
@@ -30,30 +36,22 @@ export default function GraphCard() {
     plot_bgcolor: "rgba(0,0,0,0)",
   };
 
-  // States
-  const [mounted, setMounted] = useState(false);
-
-  // Effects
-  useEffect(() => {
-    setMounted(true)
-  }, []);
-
   return (
     <Card className="w-full bg-white hover:shadow-lg">
       <CardHeader>
-        <CardTitle>Resumen de Productos</CardTitle>
-        <CardDescription>Cantidad de productos vendidos por mes</CardDescription>
+        <CardTitle>Stock</CardTitle>
+        <CardDescription>Total de productos disponibles para vender en el mes</CardDescription>
       </CardHeader>
       <CardContent>
-        {mounted && (
-          <Plot
-            data={data}
-            layout={layout}
-            style={{ width: "100%", height: "400px" }}
-            config={{ responsive: true }}
-          />
-        )}
+        <Plot
+          data={data}
+          layout={layout}
+          config={{ responsive: true }}
+          style={{ width: "100%", height: "400px" }}
+        />
       </CardContent>
     </Card>
   )
-}
+};
+
+export default GraphCard;
