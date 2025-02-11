@@ -64,3 +64,18 @@ La documentación de la API está disponible a través de Swagger una vez que in
 ```
 http://localhost:3000/api
 ```
+
+## Colecciones de Bruno
+
+El proyecto incluye una carpeta `collections` que contiene archivos de colección para [Bruno](https://www.usebruno.com/), una herramienta de código abierto para probar APIs. Estas colecciones te permiten probar fácilmente todos los endpoints de la API:
+
+```
+collections/
+├── bruno.json      # Configuración de Bruno
+├── getAll.bru      # Obtener todos los productos
+├── getOne.bru      # Obtener un producto específico
+├── update.bru      # Actualizar un producto
+└── delete.bru      # Eliminar un producto
+```
+
+Para utilizar estas colecciones, necesitas tener Bruno instalado. Puedes descargar Bruno desde [usebruno.com](https://www.usebruno.com/) y abrir la carpeta `collections` directamente en la aplicación.
