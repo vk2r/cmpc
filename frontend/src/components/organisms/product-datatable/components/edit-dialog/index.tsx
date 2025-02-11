@@ -43,8 +43,8 @@ const EditDialog = (props: Props) => {
             </Label>
             <Input
               id="nombre"
-              value={editedProduct.nombre}
-              onChange={(e) => setEditedProduct({ ...editedProduct, nombre: e.target.value })}
+              value={editedProduct.name}
+              onChange={(e) => setEditedProduct({ ...editedProduct, name: e.target.value })}
               className="col-span-3"
             />
           </div>
@@ -55,8 +55,8 @@ const EditDialog = (props: Props) => {
             <Input
               id="precio"
               type="number"
-              value={editedProduct.precio}
-              onChange={(e) => setEditedProduct({ ...editedProduct, precio: Number(e.target.value) })}
+              value={editedProduct.price}
+              onChange={(e) => setEditedProduct({ ...editedProduct, price: Number(e.target.value) })}
               className="col-span-3"
             />
           </div>

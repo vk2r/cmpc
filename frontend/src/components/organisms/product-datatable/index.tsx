@@ -1,6 +1,9 @@
 "use client"
 import { useEffect, useState } from "react";
 
+// Icons
+import { MoreHorizontal } from "lucide-react";
+
 // Externals components
 import { Input } from "../../ui/input";
 import { Button } from "../../ui/button";
@@ -9,9 +12,6 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from ".
 
 // Internals components
 import EditDialog from "./components/edit-dialog";
-
-// Icons
-import { MoreHorizontal } from "lucide-react";
 
 // Definitions
 import type { Product } from "./types";
@@ -43,7 +43,7 @@ const ProductDataTable = (props: Props) => {
   }, [initialProducts]);
 
   return (
-    <Card className="w-full max-w-4xl">
+    <Card className="w-full hover:shadow-lg">
       <CardHeader>
         <CardTitle>Productos</CardTitle>
         <CardDescription>Gestiona el inventario de productos</CardDescription>
@@ -65,8 +65,8 @@ const ProductDataTable = (props: Props) => {
           <TableBody>
             {products?.map((product) => (
               <TableRow key={product.id}>
-                <TableCell>{product.nombre}</TableCell>
-                <TableCell>${product.precio.toFixed(2)}</TableCell>
+                <TableCell>{product.name}</TableCell>
+                <TableCell>${product.price.toFixed(2)}</TableCell>
                 <TableCell>{product.stock}</TableCell>
                 <TableCell className="text-right">
                   <Button variant="ghost" size="icon" onClick={() => handleEdit(product)}>
