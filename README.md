@@ -1,6 +1,6 @@
-# Prueba Técnica Fullstack CMPC
+# Prueba Técnica Fullstack
 
-Este repositorio contiene una aplicación fullstack desarrollada como parte de la prueba técnica para CMPC.
+Este repositorio contiene una aplicación fullstack desarrollada como parte de la prueba técnica.
 
 ## Estructura del Proyecto
 
